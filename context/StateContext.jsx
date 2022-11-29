@@ -10,6 +10,7 @@ export const StateProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [spotifyPlaylists, setSpotifyPlaylists] = useState();
   const [userPlaylists, setUserPlaylists] = useState();
+  const [toggleRegistrationForm, setToggleRegistrationForm] = useState(false);
   // Player states
   const [deviceId, setDeviceId] = useState();
   const [currentTrack, setCurrentTrack] = useState(null);
@@ -143,6 +144,7 @@ export const StateProvider = ({ children }) => {
         currentUriData,
         duration,
         currentTrackIsLiked,
+        toggleRegistrationForm,
         getLibrary,
         getSpotifyPlaylists,
         getUserPlaylists,
@@ -153,6 +155,7 @@ export const StateProvider = ({ children }) => {
         setCurrentUriData,
         calcDuration,
         setCurrentTrackIsLiked,
+        setToggleRegistrationForm,
       }}
     >
       {children}

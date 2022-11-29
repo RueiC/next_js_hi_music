@@ -1,4 +1,5 @@
-import { getProviders, getSession } from "next-auth/react";
+import { getProviders, getSession } from 'next-auth/react';
+import { useStateContext } from '../context/StateContext';
 import {
   Navbar,
   Hero,
@@ -8,7 +9,7 @@ import {
   CTA,
   Footer,
   RegistrationForm,
-} from "../components/index";
+} from '../components/index';
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
@@ -16,7 +17,7 @@ export const getServerSideProps = async (context) => {
   if (session) {
     return {
       redirect: {
-        destination: "/browse",
+        destination: '/browse',
       },
     };
   }
@@ -29,45 +30,52 @@ export const getServerSideProps = async (context) => {
 };
 
 export default function Home({ providers }) {
+  const { toggleRegistrationForm, setToggleRegistrationForm } =
+    useStateContext();
   return (
     <>
-      <div className="bg-primary w-full overflow-hidden">
+      <div className='bg-primary w-full overflow-hidden'>
         <div
           className={
-            "flex justify-center items-center px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem]"
+            'flex justify-center items-center px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem]'
           }
         >
-          <div className={"xl:max-w-[1280px] w-full"}>
+          <div className={'xl:max-w-[1280px] w-full'}>
             <Navbar />
           </div>
         </div>
 
         <div
           className={
-            "flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary"
+            'flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary'
           }
         >
-          <div className={"xl:max-w-[1280px] w-full"}>
-            <Hero />
+          <div className={'xl:max-w-[1280px] w-full'}>
+            <Hero setToggleRegistrationForm={setToggleRegistrationForm} />
           </div>
         </div>
 
         <div
           className={
-            "flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary"
+            'flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary'
           }
         >
-          <div className={"xl:max-w-[1280px] w-full"}>
+          <div className={'xl:max-w-[1280px] w-full'}>
             <Stats />
-            <Business />
+            <Business setToggleRegistrationForm={setToggleRegistrationForm} />
             <Testimonials />
-            <CTA />
+            <CTA setToggleRegistrationForm={setToggleRegistrationForm} />
             <Footer />
           </div>
         </div>
       </div>
 
-      <RegistrationForm providers={providers} />
+      {toggleRegistrationForm && (
+        <RegistrationForm
+          providers={providers}
+          setToggleRegistrationForm={setToggleRegistrationForm}
+        />
+      )}
     </>
   );
 }

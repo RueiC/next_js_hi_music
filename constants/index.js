@@ -3,19 +3,15 @@ import images from '../assets';
 export const navLinks = [
   {
     id: 'home',
-    title: 'Home',
+    title: '首頁',
   },
   {
     id: 'features',
-    title: 'Features',
+    title: '特色',
   },
   {
-    id: 'product',
-    title: 'Product',
-  },
-  {
-    id: 'clients',
-    title: 'Clients',
+    id: 'testimonial',
+    title: '評價',
   },
 ];
 
@@ -73,82 +69,78 @@ export const feedback = [
 export const stats = [
   {
     id: 'stats-1',
-    title: 'User Active',
+    title: '創作者',
     value: '3800+',
   },
   {
     id: 'stats-2',
-    title: 'Trusted by Company',
-    value: '230+',
+    title: '用戶推薦',
+    value: '200,000+',
   },
   {
     id: 'stats-3',
-    title: 'Transaction',
-    value: '$230M+',
+    title: '播放次數',
+    value: '230M+',
   },
 ];
 
 export const footerLinks = [
   {
-    title: 'Useful Links',
+    title: 'Hi Music',
     links: [
       {
-        name: 'Content',
-        link: 'https://www.hoobank.com/content/',
+        name: '內容',
+        link: '',
       },
       {
-        name: 'How it Works',
-        link: 'https://www.hoobank.com/how-it-works/',
+        name: '如何運作',
+        link: '',
       },
       {
-        name: 'Create',
-        link: 'https://www.hoobank.com/create/',
+        name: '創建',
+        link: '',
       },
       {
-        name: 'Explore',
-        link: 'https://www.hoobank.com/explore/',
+        name: '探索',
+        link: '',
       },
       {
-        name: 'Terms & Services',
-        link: 'https://www.hoobank.com/terms-and-services/',
+        name: '使用條款與政策',
+        link: '',
       },
     ],
   },
   {
-    title: 'Community',
+    title: '社群',
     links: [
       {
-        name: 'Help Center',
-        link: 'https://www.hoobank.com/help-center/',
+        name: '幫助中心',
+        link: '',
       },
       {
-        name: 'Partners',
-        link: 'https://www.hoobank.com/partners/',
+        name: '合作夥伴',
+        link: '',
       },
       {
-        name: 'Suggestions',
-        link: 'https://www.hoobank.com/suggestions/',
+        name: '部落格',
+        link: '',
       },
       {
-        name: 'Blog',
-        link: 'https://www.hoobank.com/blog/',
-      },
-      {
-        name: 'Newsletters',
-        link: 'https://www.hoobank.com/newsletters/',
+        name: '新聞',
+        link: '',
       },
     ],
   },
   {
-    title: 'Partner',
+    title: '合作夥伴',
     links: [
       {
-        name: 'Our Partner',
-        link: 'https://www.hoobank.com/our-partner/',
+        name: '合作企業',
+        link: '',
       },
       {
-        name: 'Become a Partner',
-        link: 'https://www.hoobank.com/become-a-partner/',
+        name: '成為合作夥伴',
+        link: '',
       },
     ],
   },
@@ -158,40 +150,21 @@ export const socialMedia = [
   {
     id: 'social-media-1',
     icon: images.instagram,
-    link: 'https://www.instagram.com/',
+    link: '',
   },
   {
     id: 'social-media-2',
     icon: images.facebook,
-    link: 'https://www.facebook.com/',
+    link: '',
   },
   {
     id: 'social-media-3',
     icon: images.twitter,
-    link: 'https://www.twitter.com/',
+    link: '',
   },
   {
     id: 'social-media-4',
     icon: images.linkedin,
-    link: 'https://www.linkedin.com/',
-  },
-];
-
-export const clients = [
-  {
-    id: 'client-1',
-    logo: images.airbnb,
-  },
-  {
-    id: 'client-2',
-    logo: images.binance,
-  },
-  {
-    id: 'client-3',
-    logo: images.coinbase,
-  },
-  {
-    id: 'client-4',
-    logo: images.dropbox,
+    link: '',
   },
 ];

@@ -7,7 +7,7 @@ import { FeedbackCard } from '../index';
 const Testimonials = () => {
   return (
     <m.section
-      id='clients'
+      id='testimonial'
       className={
         'flex justify-center items-center sm:py-16 py-[1.5rem] relative flex-col mb-[15rem]'
       }
