@@ -28,7 +28,7 @@ const env = process.env.NODE_ENV;
 if (env === 'development') {
   REDIRECT_URI = 'http://localhost:3000/browse';
 } else if (env === 'production') {
-  REDIRECT_URI = 'https://next-js-hi-music.netlify.app';
+  REDIRECT_URI = 'https://next-js-hi-music.netlify.app/browse';
 }
 
 const spotifyApi = new SpotifyWebApi({
