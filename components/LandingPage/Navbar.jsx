@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { AiFillCloseCircle, AiOutlineMenu } from 'react-icons/ai';
 import { useStateContext } from '../../context/StateContext';
@@ -8,12 +8,25 @@ import { navLinks } from '../../constants/index';
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const { setToggleRegistrationForm } = useStateContext();
+  const [stickNavStyle, setStickNavStyle] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 800)
+        setStickNavStyle(
+          'fixed top-0 left-0 right-0 z-50 px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary',
+        );
+      else setStickNavStyle('');
+    });
+
+    return () => window.removeEventListener('scroll', () => {});
+  }, []);
 
   return (
     <>
       {/* Desktop Nav */}
       <nav
-        className='sm:flex justify-between items-center w-full py-[3rem] hidden'
+        className={`${stickNavStyle} sm:flex justify-between items-center w-full py-[3rem] hidden`}
         whileInView={{ opacity: [0, 1], y: [100, 0] }}
         transition={{ duration: 0.4, delayChildren: 0.3 }}
       >
@@ -96,7 +109,9 @@ const Navbar = () => {
       )}
 
       {!showNavbar && (
-        <div className='flex sm:hidden justify-between items-center w-full px-[1rem] py-[4rem]'>
+        <div
+          className={`${stickNavStyle} flex sm:hidden justify-between items-center w-full py-[4rem]`}
+        >
           <Image src={images.logo} alt='Hi Music' width={124} height={32} />
           <AiOutlineMenu
             className='text-[3rem] cursor-pointer hover:scale-105 transition-all duration-200 ease-in-out text-white'
