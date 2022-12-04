@@ -34,7 +34,7 @@ export default function Home({ providers }) {
     useStateContext();
   return (
     <>
-      <div className='bg-primary w-full overflow-hidden'>
+      <div className='w-full overflow-hidden bg-primary'>
         <div
           className={
             'flex justify-center items-center px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem]'

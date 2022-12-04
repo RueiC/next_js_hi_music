@@ -268,12 +268,12 @@ const Player = () => {
 
   const likeIcon = currentTrackIsLiked ? (
     <AiFillHeart
-      className='hover:scale-110 transition-all duration-200 ease-in-out shadow-2xl opacity-80 hover:opacity-100 cursor-pointer'
+      className='transition-all duration-200 ease-in-out shadow-2xl cursor-pointer hover:scale-110 opacity-80 hover:opacity-100'
       onClick={handleLike}
     />
   ) : (
     <AiOutlineHeart
-      className='hover:scale-110 transition-all duration-200 ease-in-out shadow-2xl opacity-80 hover:opacity-100 cursor-pointer'
+      className='transition-all duration-200 ease-in-out shadow-2xl cursor-pointer hover:scale-110 opacity-80 hover:opacity-100'
       onClick={handleLike}
     />
   );
@@ -303,30 +303,30 @@ const Player = () => {
 
           <div className='flex items-center justify-center text-[5rem] text-white'>
             <BiSkipPrevious
-              className='cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out hover:opacity-100 opacity-80'
+              className='transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:opacity-100 opacity-80'
               onClick={prevSong}
             />
 
             {isPlaying ? (
               <AiFillPauseCircle
-                className='cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out hover:opacity-100 opacity-80'
+                className='transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:opacity-100 opacity-80'
                 onClick={handlePlayAndPause}
               />
             ) : (
               <AiFillPlayCircle
-                className='cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out hover:opacity-100 opacity-80'
+                className='transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:opacity-100 opacity-80'
                 onClick={handlePlayAndPause}
               />
             )}
 
             <BiSkipNext
-              className='cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out hover:opacity-100 opacity-80'
+              className='transition-all duration-300 ease-in-out cursor-pointer hover:scale-110 hover:opacity-100 opacity-80'
               onClick={nextSong}
             />
           </div>
 
           <div className='flex items-center justify-center gap-[2rem] w-full'>
-            <span className='text-white font-medium'>
+            <span className='font-medium text-white'>
               {!position ? '0:00' : position}
             </span>
             <div
@@ -339,7 +339,7 @@ const Player = () => {
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
-            <span className='text-white font-medium'>
+            <span className='font-medium text-white'>
               {!duration ? '' : calcDuration(duration)}
             </span>
           </div>

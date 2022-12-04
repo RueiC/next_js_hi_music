@@ -123,12 +123,12 @@ const BigCard = ({ user, item }) => {
 
   const likeIcon = isLiked ? (
     <AiFillHeart
-      className='hover:scale-110 transition-all duration-200 ease-in-out shadow-2xl opacity-80 hover:opacity-100 cursor-pointer'
+      className='transition-all duration-200 ease-in-out shadow-2xl cursor-pointer hover:scale-110 opacity-80 hover:opacity-100'
       onClick={handleLike}
     />
   ) : (
     <AiOutlineHeart
-      className='hover:scale-110 transition-all duration-200 ease-in-out shadow-2xl opacity-80 hover:opacity-100 cursor-pointer'
+      className='transition-all duration-200 ease-in-out shadow-2xl cursor-pointer hover:scale-110 opacity-80 hover:opacity-100'
       onClick={handleLike}
     />
   );
@@ -175,12 +175,12 @@ const BigCard = ({ user, item }) => {
 
                   {togglePlayBtn ? (
                     <AiFillPauseCircle
-                      className='hover:scale-110 transition-all duration-200 ease-in-out shadow-2xl opacity-80 hover:opacity-100 cursor-pointer'
+                      className='transition-all duration-200 ease-in-out shadow-2xl cursor-pointer hover:scale-110 opacity-80 hover:opacity-100'
                       onClick={pauseSong}
                     />
                   ) : (
                     <AiFillPlayCircle
-                      className='hover:scale-110 transition-all duration-200 ease-in-out shadow-2xl opacity-80 hover:opacity-100 cursor-pointer'
+                      className='transition-all duration-200 ease-in-out shadow-2xl cursor-pointer hover:scale-110 opacity-80 hover:opacity-100'
                       onClick={playAlbumOrPlaylist}
                     />
                   )}
