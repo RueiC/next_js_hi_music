@@ -3,7 +3,6 @@ import { AiFillHome, AiFillCloseCircle, AiOutlineMenu } from 'react-icons/ai';
 import { MdLibraryMusic } from 'react-icons/md';
 import { RiPlayListFill } from 'react-icons/ri';
 import { IoIosAddCircle } from 'react-icons/io';
-import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { signOut as spotifySignOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -130,7 +129,7 @@ const SideBar = () => {
                     <button
                       className='bg-white px-[1.5rem] py-[0.5rem] rounded-full text-[1.8rem]'
                       type='button'
-                      onClick={() => signOut()}
+                      onClick={signOut}
                     >
                       登出
                     </button>

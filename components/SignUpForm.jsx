@@ -76,6 +76,7 @@ const SignUpForm = ({ type, inLoginForm, setInLoginForm }) => {
                 id='name'
                 type='text'
                 placeholder='暱稱'
+                autocomplete='off'
                 value={values.name}
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -90,6 +91,7 @@ const SignUpForm = ({ type, inLoginForm, setInLoginForm }) => {
                 id='email'
                 type='email'
                 placeholder='帳號'
+                autocomplete='off'
                 value={values.email}
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -104,6 +106,7 @@ const SignUpForm = ({ type, inLoginForm, setInLoginForm }) => {
                 id='password'
                 type='password'
                 placeholder='密碼'
+                autocomplete='off'
                 value={values.password}
                 onBlur={handleBlur}
                 onChange={handleChange}
