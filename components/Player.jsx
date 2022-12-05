@@ -20,29 +20,40 @@ import {
 } from '../utils/firebase';
 import useSpotify from '../hooks/useSpotify';
 import { useStateContext } from '../context/StateContext';
+import usePlayer from '../hooks/usePlayer';
 
 const Player = () => {
   const spotifyApi = useSpotify();
-  // const [isLiked, setIsLiked] = useState(false);
-  const [position, setPosition] = useState('0:00');
-  const [progress, setProgress] = useState(0);
-  const [volumn, setVolumn] = useState(100);
   const [isMuted, setIsMuted] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [time, setTime] = useState(0);
   const [currentUser, setCurrentUser] = useState(null);
   const {
     currentTrack,
     currentTrackIsLiked,
     isPlaying,
-    setIsPlaying,
     duration,
     currentUriData,
     calcDuration,
-    deviceId,
     setCurrentTrackIsLiked,
   } = useStateContext();
 
+  const {
+    progress,
+    volumn,
+    position,
+    handlePlayAndPause,
+    seek,
+    controlVolumn,
+    prevSong,
+    nextSong,
+  } = usePlayer(isMuted);
+
+  // useEffect(() => {
+  //   if (!progress) return;
+
+  //   console.log(progress);
+  // }, [progress]);
+
+  // Auth
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setCurrentUser(user);
@@ -50,32 +61,7 @@ const Player = () => {
     });
   }, []);
 
-  useEffect(() => {
-    if (isPlaying === null || !currentTrack) return;
-    if (position === duration) {
-      clearInterval(interval);
-      return;
-    }
-
-    const interval = setInterval(() => {
-      if (isPlaying) {
-        setTime((prevTime) => {
-          setPosition(calcDuration(prevTime + 1000));
-          setProgress(((prevTime + 1000) / duration) * 100);
-          return prevTime + 1000;
-        });
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  useEffect(() => {
-    if (currentUriData === null) return;
-    setTime(0);
-    setPosition('0:00');
-  }, [currentUriData]);
-
+  // Check Like
   useEffect(() => {
     if (!currentUriData || !currentTrack) return;
 
@@ -125,77 +111,6 @@ const Player = () => {
 
     checkIsLiked();
   }, [currentUriData, currentTrack]);
-
-  useEffect(() => {
-    if (!spotifyApi || !deviceId || !volumn) return;
-
-    const toggleMuted = async (volumn) => {
-      await spotifyApi.setVolume(volumn, { device_id: deviceId }).then(
-        () => {},
-        (err) => console.log('Something went wrong!', err),
-      );
-    };
-
-    if (isMuted) {
-      toggleMuted(0);
-    }
-
-    if (!isMuted) {
-      toggleMuted(volumn);
-    }
-
-    toggleMuted(volumn);
-  }, [isMuted, spotifyApi, deviceId]);
-
-  const handlePlayAndPause = async () => {
-    if (isPlaying) {
-      spotifyApi.pause();
-      setIsPlaying(false);
-    } else {
-      spotifyApi.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const seek = async (e) => {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const progressPercentage = x / rect.width;
-    const positionMs = Math.floor(duration * progressPercentage);
-
-    await spotifyApi.seek(positionMs).then(
-      () => {
-        setTime(positionMs);
-        setProgress(Math.floor(progressPercentage * 100));
-        setPosition(calcDuration(positionMs));
-      },
-
-      (err) => console.log('Something went wrong!', err),
-    );
-  };
-
-  const controlVolumn = async (e) => {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const volumnPercentage = Math.floor((x / rect.width) * 100);
-
-    await spotifyApi.setVolume(volumnPercentage).then(
-      () => setVolumn(volumnPercentage),
-      (err) => console.log('Something went wrong!', err),
-    );
-  };
-
-  const prevSong = async () => {
-    setTime(0);
-    setPosition('0:00');
-    await spotifyApi.skipToPrevious();
-  };
-
-  const nextSong = async () => {
-    setTime(0);
-    setPosition('0:00');
-    await spotifyApi.skipToNext();
-  };
 
   const handleLike = async () => {
     let trackInfo = {};
@@ -329,14 +244,15 @@ const Player = () => {
             <span className='font-medium text-white'>
               {!position ? '0:00' : position}
             </span>
-            <div
-              className='w-full h-[5px] rounded-full bg-white/90'
-              onClick={seek}
-            >
+            <div className='relative w-full h-[5px] rounded-full bg-white/90'>
               <div
                 className='h-[5px] rounded-full bg-blue-gradient transition-all ease-linear'
                 style={{ width: progress + '%' }}
                 onClick={(e) => e.stopPropagation()}
+              />
+              <div
+                className='absolute top-0 left-0 w-full h-[5px] rounded-full bg-white/0'
+                onClick={seek}
               />
             </div>
             <span className='font-medium text-white'>

@@ -15,7 +15,7 @@ export const StateProvider = ({ children }) => {
   const [deviceId, setDeviceId] = useState();
   const [currentTrack, setCurrentTrack] = useState(null);
   const [isPlaying, setIsPlaying] = useState(null);
-  const [duration, setDuration] = useState();
+  const [duration, setDuration] = useState(0);
   const [currentUriData, setCurrentUriData] = useState(null);
   const [currentTrackIsLiked, setCurrentTrackIsLiked] = useState(false);
   const spotifyApi = useSpotify();
