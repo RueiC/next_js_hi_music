@@ -19,23 +19,22 @@ export const features = [
   {
     id: 'feature-1',
     icon: images.star,
-    title: 'Rewards',
+    title: '杜比全景聲',
     content:
-      'The best credit cards offer some tantalizing combinations of promotions and prizes',
+      '讓你盡享令人沉醉的聆聽體驗。立體聲混音的音樂僅限於左右聲道，演繹出音樂作品中細膩豐富的細節',
   },
   {
     id: 'feature-2',
     icon: images.shield,
-    title: '100% Secured',
-    content:
-      'We take proactive steps make sure your information and transactions are secure.',
+    title: '豐富的音樂類型',
+    content: '在Hi Music上聆聽英、美、日、韓、台等世界各地國家的熱門音樂',
   },
   {
     id: 'feature-3',
     icon: images.send,
-    title: 'Balance Transfer',
+    title: '自訂播放清單',
     content:
-      'A balance transfer credit card can save you a lot of money in interest charges.',
+      '如果有你喜歡的音樂，你可以把它加入播放清單中，另外我們也提供了我們精選的播放清單',
   },
 ];
 
@@ -43,25 +42,24 @@ export const feedback = [
   {
     id: 'feedback-1',
     content:
-      'Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.',
-    name: 'Herman Jensen',
-    title: 'Founder & Leader',
+      '最近適用了三個月，我覺得非常的滿意，他的用戶體驗是我用過的音樂App中最好的',
+    name: 'Jensen',
+    title: '學生',
     img: images.people01,
   },
   {
     id: 'feedback-2',
     content:
-      "Money makes your life easier. If you're lucky to have it, you're lucky.",
-    name: 'Steve Mark',
-    title: 'Founder & Leader',
+      '我經常在通勤的時候使用Hi Music，他自定義的播放清單我覺得是非常棒的功能',
+    name: 'Ken',
+    title: '上班族',
     img: images.people02,
   },
   {
     id: 'feedback-3',
-    content:
-      'It is usually people in the money business, finance, and international trade that are really rich.',
-    name: 'Kenn Gallagher',
-    title: 'Founder & Leader',
+    content: '杜比全景聲提供了很棒的聆聽體驗，你可以聽到更細膩的音樂表現',
+    name: 'Ray',
+    title: '學生',
     img: images.people03,
   },
 ];
