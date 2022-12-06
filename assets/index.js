@@ -1,12 +1,9 @@
-import logo from './logo.svg';
 import quotes from './quotes.svg';
-import robot from './robot.png';
 import send from './Send.svg';
 import shield from './Shield.svg';
 import star from './Star.svg';
 import menu from './menu.svg';
 import close from './close.svg';
-import google from './google.svg';
 import arrowUp from './arrow-up.svg';
 import discount from './Discount.svg';
 import facebook from './facebook.svg';
@@ -21,15 +18,12 @@ import hi_music_logo from './hi_music_logo.png';
 import regist_image from './regist_image.png';
 
 export default {
-  logo: logo.src,
   quotes: quotes.src,
-  robot: robot.src,
   send: send.src,
   shield: shield.src,
   star: star.src,
   menu: menu.src,
   close: close.src,
-  google: google.src,
   arrowUp: arrowUp.src,
   discount: discount.src,
   facebook: facebook.src,
