@@ -2,8 +2,13 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html>
+    <Html lang='zh-Hant-TW'>
       <Head>
+        <link
+          rel='icon'
+          type='image/svg+xml'
+          href='../assets/hi_music_logo.svg'
+        />
         <link
           rel='stylesheet'
           href='https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css'
@@ -11,6 +16,7 @@ export default function Document() {
           crossOrigin='anonymous'
           referrerPolicy='no-referrer'
         />
+        <title>Hi Music</title>
       </Head>
       <body>
         <Main />

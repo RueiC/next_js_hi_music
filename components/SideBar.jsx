@@ -8,12 +8,18 @@ import { signOut as spotifySignOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 import images from '../assets/index';
-import { db, doc, setDoc, auth, onAuthStateChanged } from '../utils/firebase';
+import {
+  db,
+  doc,
+  setDoc,
+  auth,
+  onAuthStateChanged,
+  signOutWithFirebase,
+} from '../utils/firebase';
 import { useStateContext } from '../context/StateContext';
 
 const SideBar = () => {
   const {
-    firebaseSignOut,
     userPlaylists,
     getUserPlaylists,
     spotifyPlaylists,
@@ -26,7 +32,7 @@ const SideBar = () => {
   const router = useRouter();
 
   const signOut = () => {
-    firebaseSignOut();
+    signOutWithFirebase(auth);
     spotifySignOut();
     router.push('/');
   };
