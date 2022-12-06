@@ -35,31 +35,19 @@ export default function Home({ providers }) {
   return (
     <>
       <div className='w-full overflow-hidden bg-primary'>
-        <div
-          className={
-            'flex justify-center items-center px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem]'
-          }
-        >
-          <div className={'xl:max-w-[1280px] w-full'}>
+        <div className='flex justify-center items-center px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem]'>
+          <div className='xl:max-w-[1280px] w-full'>
             <Navbar />
           </div>
         </div>
 
-        <div
-          className={
-            'flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary'
-          }
-        >
-          <div className={'xl:max-w-[1280px] w-full'}>
+        <div className='flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary'>
+          <div className='xl:max-w-[1280px] w-full'>
             <Hero setToggleRegistrationForm={setToggleRegistrationForm} />
           </div>
         </div>
 
-        <div
-          className={
-            'flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary'
-          }
-        >
+        <div className='flex justify-center items-start px-[4rem] md:px-[10rem] sm:px-[12rem] lg:px-[15rem] bg-primary'>
           <div className={'xl:max-w-[1280px] w-full'}>
             <Stats />
             <Business setToggleRegistrationForm={setToggleRegistrationForm} />

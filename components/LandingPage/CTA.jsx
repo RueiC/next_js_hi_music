@@ -5,22 +5,20 @@ import styles from '../../styles/styles';
 const CTA = ({ setToggleRegistrationForm }) => {
   return (
     <m.section
-      className={
-        'flex justify-center items-center px-[5rem] py-[8rem] md:flex-row flex-col gap-[2rem] bg-black-gradient-2 rounded-[20px] box-shadow mb-[15rem]'
-      }
+      className='flex justify-center items-center px-[5rem] py-[8rem] md:flex-row flex-col gap-[2rem] bg-black-gradient-2 rounded-[2rem] box-shadow mb-[15rem]'
       whileInView={{ opacity: [0, 1], y: [100, 0] }}
       transition={{ duration: 0.4, delayChildren: 0.3 }}
     >
       <div className='flex gap-[2rem] flex-col text-center md:text-left'>
         <h2 className={styles.heading2}>現在立即體驗我們的服務吧！</h2>
-        <p className={`${styles.paragraph} mt-5`}>
+        <p className={`${styles.paragraph} mt-[1.2rem]`}>
           用你熱愛的歌曲、專輯和藝人填滿你的世界。暢聽數千萬首歌曲，享受精選歌單。
         </p>
       </div>
 
-      <div className={'flex justify-center items-center sm:ml-10 ml-0'}>
+      <div className='flex justify-center items-center sm:ml-[2.5rem] ml-0'>
         <button
-          className={`bg-blue-gradient font-medium  text-primary rounded-[10px] px-10 py-3 text-[17px] outline-none hover:scale-105 duration-300 transition-all ease-in-out`}
+          className='bg-blue-gradient font-medium  text-primary rounded-[1rem] px-[2.5rem] py-[0.7rem] text-[1.7rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
           type='button'
           onClick={() => setToggleRegistrationForm(true)}
         >

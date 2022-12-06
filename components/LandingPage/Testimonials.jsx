@@ -8,9 +8,7 @@ const Testimonials = () => {
   return (
     <m.section
       id='testimonial'
-      className={
-        'flex justify-center items-center sm:py-16 py-[1.5rem] relative flex-col mb-[15rem]'
-      }
+      className='flex justify-center items-center sm:py-[4rem] py-[1.5rem] relative flex-col mb-[15rem]'
       whileInView={{ opacity: [0, 1], y: [100, 0] }}
       transition={{ duration: 0.4, delayChildren: 0.3 }}
     >

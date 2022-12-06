@@ -41,7 +41,7 @@ const Navbar = () => {
           {navLinks.map((nav, i) => (
             <li
               className={`${
-                i === navLinks.length - 1 ? 'mr-0' : 'mr-10'
+                i === navLinks.length - 1 ? 'mr-0' : 'mr-[2.5rem]'
               } text-white text-[2.2rem] font-normal cursor-pointer opacity-90 hover:scale-105 hover:opacity-100 duration-200 transition-all ease-linear`}
               key={nav.id}
             >
@@ -49,14 +49,14 @@ const Navbar = () => {
             </li>
           ))}
           <button
-            className='bg-blue-gradient font-normal  text-primary rounded-[10px] px-10 py-3 text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out ml-[2rem]'
+            className='bg-blue-gradient font-normal  text-primary rounded-[1rem] px-[2.5rem] py-3 text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out ml-[2rem]'
             type='button'
             onClick={() => setToggleRegistrationForm(true)}
           >
             登入
           </button>
           <button
-            className='bg-white font-normal  text-primary rounded-[10px] px-10 py-3 text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
+            className='bg-white font-normal  text-primary rounded-[1rem] px-[2.5rem] py-3 text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
             type='button'
             onClick={() => setToggleRegistrationForm(true)}
           >
@@ -86,14 +86,14 @@ const Navbar = () => {
               </li>
             ))}
             <button
-              className='bg-blue-gradient font-normal  text-primary rounded-[10px] px-10 py-3 text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
+              className='bg-blue-gradient font-normal  text-primary rounded-[10px] px-[2.5rem] py-[0.7rem] text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
               type='button'
               onClick={() => setToggleRegistrationForm(true)}
             >
               登入
             </button>
             <button
-              className='bg-white font-normal  text-primary rounded-[10px] px-10 py-3 text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
+              className='bg-white font-normal  text-primary rounded-[10px] px-[2.5rem] py-[0.7rem] text-[2.2rem] outline-none hover:scale-105 duration-300 transition-all ease-in-out'
               type='button'
               onClick={() => setToggleRegistrationForm(true)}
             >
@@ -102,7 +102,7 @@ const Navbar = () => {
           </ul>
 
           <AiFillCloseCircle
-            className=' absolute top-[3rem] right-[5rem] text-[3.5rem] hover:scale-105 hover:opacity-100 transition-all opacity-90 duration-300 ease-in-out cursor-pointer text-white'
+            className='absolute top-[3rem] right-[5rem] text-[3.5rem] hover:scale-105 hover:opacity-100 transition-all opacity-90 duration-300 ease-in-out cursor-pointer text-white'
             onClick={() => setShowNavbar(false)}
           />
         </nav>
