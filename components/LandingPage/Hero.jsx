@@ -28,10 +28,10 @@ const Hero = ({ setToggleRegistrationForm }) => {
           </p>
         </div>
 
-        <div className='flex justify-between items-center w-full'>
+        <div className='flex items-center justify-between w-full'>
           <h1 className='flex-1 text-[5rem] sm:text-[7rem] sm:leading-[10rem] leading-[7rem] text-white font-bold'>
             <span className='text-gradient'>新世代的</span>
-            <br className='sm:block hidden' />
+            <br className='hidden sm:block' />
             創作人音樂分享平台
           </h1>
         </div>
@@ -59,8 +59,8 @@ const Hero = ({ setToggleRegistrationForm }) => {
         <Image
           className='relative z-[5]'
           fill
-          src={images.robot}
-          blurDataURL={images.robot}
+          src={images.regist_image}
+          blurDataURL={images.regist_image}
           alt='music card'
           placeholder='blur'
         />
