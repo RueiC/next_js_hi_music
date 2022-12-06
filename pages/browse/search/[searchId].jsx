@@ -109,34 +109,35 @@ const Search = ({ searchId, currentUser }) => {
 
           <h1 className='text-[3rem] font-medium mb-[3rem] text-white'>藝人</h1>
           <div className='flex items-center justify-start flex-wrap gap-[5rem] w-full'>
-            {artists &&
-              artists.map((artist) => (
-                <a
-                  className='flex flex-col items-center justify-center w-[15rem] h-[15rem] text-center'
-                  href={`/browse/artist/${artist.id}`}
-                  key={artist.id}
-                >
-                  <img
-                    className='w-[10rem] h-[10rem] mb-[2rem] rounded-full hover:scale-105 transition-all duration-300 ease-in-out'
-                    src={artist?.images[1]?.url}
-                    alt=''
-                  />
-                  <p className='text-white text-[2rem] font-bold opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out'>
-                    {artist.name}
-                  </p>
-                </a>
-              ))}
+            {artists
+              ? artists.map((artist) => (
+                  <a
+                    className='flex flex-col items-center justify-center w-[15rem] h-[15rem] text-center'
+                    href={`/browse/artist/${artist.id}`}
+                    key={artist.id}
+                  >
+                    <img
+                      className='w-[10rem] h-[10rem] mb-[2rem] rounded-full hover:scale-105 transition-all duration-300 ease-in-out'
+                      src={artist?.images[1]?.url}
+                      alt=''
+                    />
+                    <p className='text-white text-[2rem] font-bold opacity-90 hover:opacity-100 transition-all duration-300 ease-in-out'>
+                      {artist.name}
+                    </p>
+                  </a>
+                ))
+              : null}
           </div>
 
           <h1 className='text-[3rem] font-medium mb-[3rem] text-white'>專輯</h1>
-          {albums && <BigCardLayout albums={albums} user={currentUser} />}
+          {albums ? <BigCardLayout albums={albums} user={currentUser} /> : null}
 
           <h1 className='text-[3rem] font-medium mb-[3rem] text-white'>
             播放清單
           </h1>
-          {playlists && (
+          {playlists ? (
             <BigCardLayout playlists={playlists} user={currentUser} />
-          )}
+          ) : null}
         </div>
       )}
     </>

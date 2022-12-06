@@ -1,9 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-/// ////////////////////
 import useSpotify from '../hooks/useSpotify';
 import { db, getDocs, collection, query } from '../utils/firebase';
-/// ////////////////////
+
 const Context = createContext();
 
 export const StateProvider = ({ children }) => {
@@ -55,8 +54,8 @@ export const StateProvider = ({ children }) => {
         setDeviceId(device_id);
       });
 
-      spotifyPlayer.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
+      spotifyPlayer.addListener('not_ready', () => {
+        // console.log('Device ID has gone offline', device_id);
       });
 
       spotifyPlayer.addListener('player_state_changed', (state) => {
@@ -92,7 +91,15 @@ export const StateProvider = ({ children }) => {
     };
 
     playSong();
-  }, [currentUriData]);
+  }, [currentUriData, deviceId]);
+
+  const getWindowDimensions = () => {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height,
+    };
+  };
 
   const getLibrary = async () => {
     const q = query(collection(db, 'library'));
@@ -156,6 +163,7 @@ export const StateProvider = ({ children }) => {
         calcDuration,
         setCurrentTrackIsLiked,
         setToggleRegistrationForm,
+        getWindowDimensions,
       }}
     >
       {children}

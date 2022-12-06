@@ -46,7 +46,7 @@ const SignUpForm = ({ type, inLoginForm, setInLoginForm }) => {
 
   return (
     <>
-      {type === 'desktop' && (
+      {type === 'desktop' ? (
         <form
           className={`flex flex-col gap-[5rem] w-full px-[9.6rem] py-[6rem] transition-all duration-300 ease-in-out opacity-100 ${
             inLoginForm && '-translate-x-[100%] opacity-0 pointer-events-none'
@@ -132,9 +132,9 @@ const SignUpForm = ({ type, inLoginForm, setInLoginForm }) => {
             </p>
           </div>
         </form>
-      )}
+      ) : null}
 
-      {type === 'mobile' && (
+      {type === 'mobile' ? (
         <form
           className={`flex flex-col gap-[5rem] w-full px-[9.6rem] py-[6rem] transition-all duration-300 ease-in-out -translate-x-[100%] ${
             inLoginForm && 'translate-x-[200%] pointer-events-none'
@@ -217,7 +217,7 @@ const SignUpForm = ({ type, inLoginForm, setInLoginForm }) => {
             </p>
           </div>
         </form>
-      )}
+      ) : null}
     </>
   );
 };

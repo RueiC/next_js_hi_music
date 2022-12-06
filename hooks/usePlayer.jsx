@@ -19,9 +19,15 @@ const usePlayer = (isMuted) => {
     deviceId,
   } = useStateContext();
 
+  const resetPlayer = () => {
+    setTime(0);
+    setProgress(0);
+    setPosition('0:00');
+  };
+
   useEffect(() => {
     if (isPlaying === null || !currentTrack) return;
-    if (position === duration) {
+    if (position >= duration) {
       clearInterval(interval);
       return;
     }
@@ -37,13 +43,11 @@ const usePlayer = (isMuted) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isPlaying, duration]);
+  }, [isPlaying, duration, calcDuration, currentTrack, position]);
 
   useEffect(() => {
     if (currentUriData === null) return;
-    setTime(0);
-    setProgress(0);
-    setPosition('0:00');
+    resetPlayer();
   }, [currentUriData]);
 
   useEffect(() => {
@@ -65,7 +69,7 @@ const usePlayer = (isMuted) => {
     }
 
     toggleMuted(volumn);
-  }, [isMuted, spotifyApi, deviceId]);
+  }, [isMuted, spotifyApi, deviceId, volumn]);
 
   const handlePlayAndPause = async () => {
     if (isPlaying) {
@@ -106,16 +110,12 @@ const usePlayer = (isMuted) => {
   };
 
   const prevSong = async () => {
-    setTime(0);
-    setProgress(0);
-    setPosition('0:00');
+    resetPlayer();
     await spotifyApi.skipToPrevious();
   };
 
   const nextSong = async () => {
-    setTime(0);
-    setProgress(0);
-    setPosition('0:00');
+    resetPlayer();
     await spotifyApi.skipToNext();
   };
 

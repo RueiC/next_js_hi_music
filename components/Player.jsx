@@ -47,12 +47,6 @@ const Player = () => {
     nextSong,
   } = usePlayer(isMuted);
 
-  // useEffect(() => {
-  //   if (!progress) return;
-
-  //   console.log(progress);
-  // }, [progress]);
-
   // Auth
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -195,7 +189,7 @@ const Player = () => {
 
   return (
     <>
-      {currentTrack && (
+      {currentTrack ? (
         <div className='fixed flex items-center justify-between gap-[6rem] px-[5rem] w-full h-[12rem] bottom-0 bg-black-gradient z-50'>
           <div className='flex items-center justify-between w-[70rem]'>
             <div className='flex items-center gap-[2rem]'>
@@ -286,7 +280,7 @@ const Player = () => {
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </>
   );
 };

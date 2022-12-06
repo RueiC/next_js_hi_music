@@ -130,7 +130,7 @@ const Browse = ({ currentUser, session }) => {
     };
 
     getAllData();
-  }, [session, spotifyApi]);
+  }, [session, spotifyApi, currentUser]);
 
   return (
     <>
@@ -162,11 +162,9 @@ const Browse = ({ currentUser, session }) => {
         ) : (
           <SmallCardLayout
             tracks={recommendationTracks}
-            user={currentUser}
             layout={'grid'}
             image=''
             albumId=''
-            playlistId=''
             type='track'
           />
         )}

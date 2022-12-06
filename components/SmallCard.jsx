@@ -16,7 +16,7 @@ import { db, doc, getDoc, updateDoc, setDoc } from '../utils/firebase';
 import useSpotify from '../hooks/useSpotify';
 import { useStateContext } from '../context/StateContext';
 
-const SmallCard = ({ user, track, image, albumId, playlistId, type }) => {
+const SmallCard = ({ track, image, albumId, type }) => {
   const {
     currentTrack,
     currentTrackIsLiked,
@@ -35,7 +35,7 @@ const SmallCard = ({ user, track, image, albumId, playlistId, type }) => {
 
   useEffect(() => {
     if (!albumImage) getAlbumImage();
-  }, []);
+  });
 
   useEffect(() => {
     if (!currentTrack || !currentUriData) return;
@@ -81,7 +81,7 @@ const SmallCard = ({ user, track, image, albumId, playlistId, type }) => {
         setTogglePlayBtn(true);
       }
     }
-  }, [currentTrack, currentUriData, isPlaying]);
+  }, [currentTrack, currentUriData, isPlaying, track, type]);
 
   useEffect(() => {
     if (currentTrack === null || !currentTrack) return;
@@ -89,7 +89,7 @@ const SmallCard = ({ user, track, image, albumId, playlistId, type }) => {
     if (currentTrack.id === track.id) {
       setIsLiked(currentTrackIsLiked);
     }
-  }, [currentTrackIsLiked]);
+  }, [currentTrackIsLiked, currentTrack, track]);
 
   const pauseSong = async () => {
     await spotifyApi.pause();

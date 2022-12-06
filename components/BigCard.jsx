@@ -42,7 +42,7 @@ const BigCard = ({ user, item }) => {
     if (isPlaying === false) setTogglePlayBtn(false);
     if (isPlaying === true && item.uri === currentUriData.uri)
       setTogglePlayBtn(true);
-  }, [currentTrack, currentUriData, isPlaying]);
+  }, [currentTrack, currentUriData, isPlaying, item]);
 
   const pauseSong = async () => {
     await spotifyApi.pause();

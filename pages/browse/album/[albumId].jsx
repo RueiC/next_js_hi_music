@@ -19,12 +19,10 @@ export const getServerSideProps = async (context) => {
     };
   }
 
-  const currentUser = JSON.parse(user);
-
-  return { props: { currentUser, session, albumId: context.query.albumId } };
+  return { props: { session, albumId: context.query.albumId } };
 };
 
-const Album = ({ currentUser, session, albumId }) => {
+const Album = ({ session, albumId }) => {
   const [album, setAlbum] = useState();
   const { isLoading, setIsLoading } = useStateContext();
   const spotifyApi = useSpotify();
@@ -84,7 +82,7 @@ const Album = ({ currentUser, session, albumId }) => {
             <p className='text-[3.5rem] font-bold text-white'>{album.name}</p>
             {album.artists.map((artist, i) => (
               <div
-                className='text-white hover:scale-110 transition-all duration-200 ease-in-out'
+                className='text-white transition-all duration-200 ease-in-out hover:scale-110'
                 key={artist.name}
               >
                 <a
@@ -102,11 +100,9 @@ const Album = ({ currentUser, session, albumId }) => {
             <SmallCardLayout
               tracks={album.tracks.items}
               layout={'flex'}
-              user={currentUser}
               type='album'
               image={album?.images[1]?.url}
               albumId={album.id}
-              playlistId=''
             />
           </section>
         </div>

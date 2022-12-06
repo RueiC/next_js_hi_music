@@ -53,7 +53,7 @@ const SignInForm = ({ type, inLoginForm, setInLoginForm, providers }) => {
 
   return (
     <>
-      {type === 'desktop' && (
+      {type === 'desktop' ? (
         <form
           className={`flex flex-col gap-[5rem] w-full px-[9.6rem] py-[6rem] transition-all duration-500 ease-in-out ${
             inLoginForm
@@ -120,9 +120,9 @@ const SignInForm = ({ type, inLoginForm, setInLoginForm, providers }) => {
             </p>
           </div>
         </form>
-      )}
+      ) : null}
 
-      {type === 'mobile' && (
+      {type === 'mobile' ? (
         <form
           className={`flex flex-col gap-[5rem] w-full px-[9.6rem] py-[6rem] transition-all duration-500 ease-in-out ${
             inLoginForm
@@ -191,7 +191,7 @@ const SignInForm = ({ type, inLoginForm, setInLoginForm, providers }) => {
             </p>
           </div>
         </form>
-      )}
+      ) : null}
     </>
   );
 };

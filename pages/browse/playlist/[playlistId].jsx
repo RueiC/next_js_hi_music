@@ -23,19 +23,17 @@ export const getServerSideProps = async (context) => {
       },
     };
   }
-  const currentUser = JSON.parse(user);
 
   return {
     props: {
       type,
-      currentUser,
       session,
       playlistId: context.query.playlistId,
     },
   };
 };
 
-const Playlist = ({ currentUser, session, type, playlistId }) => {
+const Playlist = ({ session, type, playlistId }) => {
   const {
     isLoading,
     setIsLoading,
@@ -240,24 +238,22 @@ const Playlist = ({ currentUser, session, type, playlistId }) => {
               </div>
             )}
 
-            {isAddToList && (
+            {isAddToList ? (
               <div className='bg-blue-gradient p-[1.2rem] rounded-full opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer'>
                 <RiDeleteBinFill
                   className='text-white text-[3rem]'
                   onClick={() => deletePlaylist(playlist, type)}
                 />
               </div>
-            )}
+            ) : null}
           </div>
           {playlist?.tracks?.items.length > 0 ? (
             <section>
               <SmallCardLayout
                 tracks={playlist.tracks.items}
                 layout={'flex'}
-                user={currentUser}
                 image=''
                 albumId=''
-                playlistId={playlistId}
                 type={type === 'playlist' ? type : 'track'}
               />
             </section>

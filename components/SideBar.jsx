@@ -89,7 +89,7 @@ const SideBar = () => {
 
   return (
     <>
-      {currentUser && (
+      {currentUser ? (
         <>
           <div className='md:block w-[36rem] h-[100vh] hidden'>
             <header className='fixed flex justify-center w-[36rem] border-r-[1px] border-gray-50/20 bg-primary'>
@@ -176,36 +176,38 @@ const SideBar = () => {
                     </div>
 
                     <ul className='flex flex-col gap-[3rem] text-[2rem] font-medium text-white'>
-                      {spotifyPlaylists &&
-                        spotifyPlaylists.map((spotifyPlaylist) => (
-                          <li
-                            className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
-                            key={spotifyPlaylist.id}
-                          >
-                            <Link
-                              className='flex items-center cursor-pointer'
-                              href={`/browse/playlist/${spotifyPlaylist.id}`}
+                      {spotifyPlaylists
+                        ? spotifyPlaylists.map((spotifyPlaylist) => (
+                            <li
+                              className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
+                              key={spotifyPlaylist.id}
                             >
-                              <RiPlayListFill className='inline-block mr-3' />
-                              {spotifyPlaylist.name}
-                            </Link>
-                          </li>
-                        ))}
-                      {userPlaylists &&
-                        userPlaylists.map((userPlaylist) => (
-                          <li
-                            className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
-                            key={userPlaylist.id}
-                          >
-                            <Link
-                              className='flex items-center cursor-pointer'
-                              href={`/browse/playlist/${userPlaylist.id}?type=user-playlist`}
+                              <Link
+                                className='flex items-center cursor-pointer'
+                                href={`/browse/playlist/${spotifyPlaylist.id}`}
+                              >
+                                <RiPlayListFill className='inline-block mr-3' />
+                                {spotifyPlaylist.name}
+                              </Link>
+                            </li>
+                          ))
+                        : null}
+                      {userPlaylists
+                        ? userPlaylists.map((userPlaylist) => (
+                            <li
+                              className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
+                              key={userPlaylist.id}
                             >
-                              <RiPlayListFill className='inline-block mr-3' />
-                              {userPlaylist.name}
-                            </Link>
-                          </li>
-                        ))}
+                              <Link
+                                className='flex items-center cursor-pointer'
+                                href={`/browse/playlist/${userPlaylist.id}?type=user-playlist`}
+                              >
+                                <RiPlayListFill className='inline-block mr-3' />
+                                {userPlaylist.name}
+                              </Link>
+                            </li>
+                          ))
+                        : null}
                     </ul>
                   </div>
                 </nav>
@@ -213,7 +215,7 @@ const SideBar = () => {
             </header>
           </div>
 
-          {!showSidebar && (
+          {!showSidebar ? (
             <header
               className={`flex items-center justify-between w-full px-[3rem] bg-primary md:hidden ${sticky} ${
                 sticky ? 'py-[2.5rem]' : 'pt-[3rem] pb-[5rem]'
@@ -229,14 +231,14 @@ const SideBar = () => {
                 onClick={() => setShowSidebar(true)}
               />
             </header>
-          )}
+          ) : null}
 
           <header
             className={`fixed top-0 left-0 w-full h-[100vh] z-50 bg-primary md:hidden -translate-x-[100%] transition-all duration-500 ease-in-out ${
-              showSidebar && 'translate-x-0'
+              showSidebar ? 'translate-x-0' : ''
             }`}
           >
-            {showSidebar && (
+            {showSidebar ? (
               <div className='flex flex-col justify-start gap-[4.2rem] px-[4rem] ss:px-[8rem] sm:px-[12rem] py-[3.5rem] w-full h-[100vh]'>
                 <div className='flex items-center justify-between cursor-pointer'>
                   <img
@@ -321,44 +323,46 @@ const SideBar = () => {
                     </div>
 
                     <ul className='flex flex-col gap-[3rem] text-[2rem] font-medium text-white'>
-                      {spotifyPlaylists &&
-                        spotifyPlaylists.map((spotifyPlaylist) => (
-                          <li
-                            className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
-                            key={spotifyPlaylist.id}
-                          >
-                            <Link
-                              className='flex items-center cursor-pointer'
-                              href={`/browse/playlist/${spotifyPlaylist.id}`}
+                      {spotifyPlaylists
+                        ? spotifyPlaylists.map((spotifyPlaylist) => (
+                            <li
+                              className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
+                              key={spotifyPlaylist.id}
                             >
-                              <RiPlayListFill className='inline-block mr-3' />
-                              {spotifyPlaylist.name}
-                            </Link>
-                          </li>
-                        ))}
-                      {userPlaylists &&
-                        userPlaylists.map((userPlaylist) => (
-                          <li
-                            className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
-                            key={userPlaylist.id}
-                          >
-                            <Link
-                              className='flex items-center cursor-pointer'
-                              href={`/browse/playlist/${userPlaylist.id}?type=playlist`}
+                              <Link
+                                className='flex items-center cursor-pointer'
+                                href={`/browse/playlist/${spotifyPlaylist.id}`}
+                              >
+                                <RiPlayListFill className='inline-block mr-3' />
+                                {spotifyPlaylist.name}
+                              </Link>
+                            </li>
+                          ))
+                        : null}
+                      {userPlaylists
+                        ? userPlaylists.map((userPlaylist) => (
+                            <li
+                              className='hover:bg-gradient-to-r hover:from-tertiary hover:to-secondary hover:px-[2.5rem] py-[1rem] rounded-[1rem] transition-all duration-500 ease-in-out'
+                              key={userPlaylist.id}
                             >
-                              <RiPlayListFill className='inline-block mr-3' />
-                              {userPlaylist.name}
-                            </Link>
-                          </li>
-                        ))}
+                              <Link
+                                className='flex items-center cursor-pointer'
+                                href={`/browse/playlist/${userPlaylist.id}?type=playlist`}
+                              >
+                                <RiPlayListFill className='inline-block mr-3' />
+                                {userPlaylist.name}
+                              </Link>
+                            </li>
+                          ))
+                        : null}
                     </ul>
                   </div>
                 </nav>
               </div>
-            )}
+            ) : null}
           </header>
         </>
-      )}
+      ) : null}
     </>
   );
 };
